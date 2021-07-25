@@ -42,7 +42,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/Asset/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -158,6 +158,9 @@
       <workItem from="1626418997260" duration="514000" />
       <workItem from="1626423993827" duration="1896000" />
       <workItem from="1626445313286" duration="4780000" />
+      <workItem from="1626776849400" duration="2236000" />
+      <workItem from="1626786111235" duration="18000" />
+      <workItem from="1627184544958" duration="3727000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,10 @@
 package Model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class City {
     private int ID;
     private String name, country;
@@ -33,6 +38,7 @@ public class City {
         this.ID = ID;
     }
 
+    @NotEmpty
     public String getName() {
         return name;
     }
@@ -41,6 +47,7 @@ public class City {
         this.name = name;
     }
 
+    @NotEmpty
     public String getCountry() {
         return country;
     }
@@ -73,6 +80,7 @@ public class City {
         this.gdp = gdp;
     }
 
+    @NotNull
     public String getInstruction() {
         return instruction;
     }

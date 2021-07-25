@@ -1,12 +1,12 @@
-EncodingFilter.java
- EncodingFilter
 testServlet.java
  testServlet
+EncodingFilter.java
+ EncodingFilter
 Model/City.java
  Model.City
-Service/ICityAction.java
- Service.ICityAction
 Service/CityDAO.java
  Service.CityDAO
+Service/ICityAction.java
+ Service.ICityAction
 Controller/CityServlet.java
  Controller.CityServlet

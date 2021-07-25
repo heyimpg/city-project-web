@@ -9,11 +9,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @WebServlet(urlPatterns = "/cities")
 public class CityServlet extends HttpServlet {
@@ -156,10 +161,26 @@ public class CityServlet extends HttpServlet {
         float population = Float.parseFloat(req.getParameter("population"));
         float GDP = Float.parseFloat(req.getParameter("GDP"));
         String instruction = req.getParameter("instruction");
-        //Thêm mới
-        cityDAO.insertCity(new City(name, country, area, population, GDP, instruction));
-        //Chuyển về trang chủ
-        RedirectPage(GO_HOME, req, resp);
+
+        City newCity = new City(name,country, area, population, GDP, instruction);
+        //Validate
+        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator();
+        Set<ConstraintViolation<City>> constraintViolations = validator.validate(newCity);
+        //Nếu lỗi
+        if (!constraintViolations.isEmpty()) {
+            String errors = "Vui long nhap day du thong tin!";
+            req.setAttribute("errors", errors);
+        //    req.setAttribute("city", newCity);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/View/create.jsp");
+            dispatcher.forward(req, resp);
+        }else
+        {
+            //Thêm mới
+            cityDAO.insertCity(newCity);
+            //Chuyển về trang chủ
+            RedirectPage(GO_HOME, req, resp);
+        }
     }
 
 

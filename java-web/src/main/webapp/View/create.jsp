@@ -33,6 +33,12 @@
         <!-- Tiêu đề -->
         <h2 class="title-city">Thêm thành phố</h2>
         <!-- navigation -->
+        <h2 class="title-city">
+                <c:if test="${errors != null}">
+                            ${errors}
+                </c:if>
+        </h2>
+
     </head>
     <!-- phần chứa bảng -->
     <div class="container-fluid">
